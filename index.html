@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Pagina Web Con Javascript</title>
 </head>
 <header>
     <div class="container__header--navmenu">
         <ul>
-            <li><a href="#">Inicio</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <li><a href="#">Peliculas</a></li>
             <li><a href="#">Estrenos</a></li>
         </ul>
@@ -23,29 +24,33 @@
     <div class="container__main">
         <h2 class="estrenos">Estrenos</h2>
         <div class="container__estrenos">
-            <div class="container__estrenos--box">
+            <div data-aos="fade-up" data-aos-duration="3000" class="container__estrenos--box">
                 <img src="assest/img/avengers.jpg" alt="">
                 <h3>Avengers</h3>
                 <button>Comprar Entradas</button>
             </div>
-            <div class="container__estrenos--box">
+            <div data-aos="fade-up" data-aos-duration="3000" class="container__estrenos--box">
                 <img src="assest/img/hulk.jpg" alt="">
                 <h3>Hulk</h3>
                 <button>Comprar Entradas</button>
             </div>
-            <div class="container__estrenos--box">
+            <div data-aos="fade-up"  data-aos-duration="3000" class="container__estrenos--box">
                 <img src="assest/img/thor.jpg" alt="">
                 <h3>Thor</h3>
                 <button>Comprar Entradas</button>
             </div>
-            <div class="container__estrenos--box">
+            <div data-aos="fade-up" data-aos-duration="3000" class="container__estrenos--box">
                 <img src="assest/img/spiderman.jpg" alt="">
                 <h3>Spiderman</h3>
                 <button>Comprar Entradas</button>
             </div>
         </div>
     </div>
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>   
 </body>
 
 </html>
