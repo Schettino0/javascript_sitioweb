@@ -2,55 +2,125 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <title>Pagina Web Con Javascript</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <title>Pagina Web Con Javascript</title>
 </head>
 <header>
-    <div class="container__header--navmenu">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="#">Peliculas</a></li>
-            <li><a href="#">Estrenos</a></li>
-        </ul>
+  <div class="container__header">
+    <div class="container__header--logo">
+      <a href="index.html">
+        <img src="assest/img/logo.png" alt="logo">
+      </a>
     </div>
+    <div class="container__header--navmenu">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#">Peliculas</a></li>
+        <li><a href="#">Estrenos</a></li>
+        <li><a href="#">Confiteria</a></li>
+      </ul>
+    </div>
+  </div>
 </header>
 
 <body>
-    <div class="container__main">
-        <h2 class="estrenos">Estrenos</h2>
-        <div class="container__estrenos">
-            <div data-aos="fade-up" data-aos-duration="3000" class="container__estrenos--box">
-                <img src="assest/img/avengers.jpg" alt="">
-                <h3>Avengers</h3>
-                <button>Comprar Entradas</button>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="3000" class="container__estrenos--box">
-                <img src="assest/img/hulk.jpg" alt="">
-                <h3>Hulk</h3>
-                <button>Comprar Entradas</button>
-            </div>
-            <div data-aos="fade-up"  data-aos-duration="3000" class="container__estrenos--box">
-                <img src="assest/img/thor.jpg" alt="">
-                <h3>Thor</h3>
-                <button>Comprar Entradas</button>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="3000" class="container__estrenos--box">
-                <img src="assest/img/spiderman.jpg" alt="">
-                <h3>Spiderman</h3>
-                <button>Comprar Entradas</button>
-            </div>
-        </div>
+  <div class="container__main">
+    <h2 class="titulo">Estrenos</h2>
+    <div class="container__carteles" data-aos="fade-right" data-aos-duration="1000">
+      <div class="container__carteles--box">
+        <img src="assest/img/avengers.jpg" alt="" />
+        <h3>Avengers</h3>
+        <button>Comprar Entradas</button>
+      </div>
+      <div class="container__carteles--box">
+        <img src="assest/img/hulk.jpg" alt="" />
+        <h3>Hulk</h3>
+        <button>Comprar Entradas</button>
+      </div>
+      <div class="container__carteles--box">
+        <img src="assest/img/thor.jpg" alt="" />
+        <h3>Thor</h3>
+        <button>Comprar Entradas</button>
+      </div>
+      <div class="container__carteles--box">
+        <img src="assest/img/spiderman.jpg" alt="" />
+        <h3>Spiderman</h3>
+        <button>Comprar Entradas</button>
+      </div>
+      <div class="container__carteles--box">
+        <img src="assest/img/spiderman.jpg" alt="" />
+        <h3>Spiderman</h3>
+        <button>Comprar Entradas</button>
+      </div>
+
     </div>
-    <script src="/js/main.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>   
+    <div class="peliculas">
+      <h2 class="titulo" >Peliculas</h2>
+      <div class="container__peliculas" data-aos="fade-right" data-aos-duration="1000">
+        <div class="container__carteles--box">
+          <img src="assest/img/amsterdam.webp" alt="" />
+          <h3>Amsterdam</h3>
+          <button>Comprar Entradas</button>
+        </div>
+        <div class="container__carteles--box">
+          <img src="assest/img/elcuartopasajero.jpg" alt="" />
+          <h3>El Cuarto Pasajero</h3>
+          <button>Comprar Entradas</button>
+        </div>
+        <div class="container__carteles--box">
+          <img src="assest/img/red.jpg" alt="" />
+          <h3>REC</h3>
+          <button>Comprar Entradas</button>
+        </div>
+        <div class="container__carteles--box">
+          <img src="assest/img/aloriente.jpg" alt="" />
+          <h3>Al Oriente</h3>
+          <button>Comprar Entradas</button>
+        </div>
+        <div class="container__carteles--box">
+          <img src="assest/img/shrek3d.webp" alt="" />
+          <h3>Shrek 3D</h3>
+          <button>Comprar Entradas</button>
+        </div>
+        <div class="container__carteles--box">
+          <img src="assest/img/reyleon.webp" alt="" />
+          <h3>El Rey Leon</h3>
+          <button>Comprar Entradas</button>
+        </div>
+        <div class="container__carteles--box">
+          <img src="assest/img/cars2.webp" alt="" />
+          <h3>Cars 2</h3>
+          <button>Comprar Entradas</button>
+        </div>
+        <div class="container__carteles--box">
+          <img src="assest/img/buscandoanemo.jpg" alt="" />
+          <h3>Buscando a Nemo</h3>
+          <button>Comprar Entradas</button>
+        </div>
+        <div class="container__carteles--box">
+          <img src="assest/img/toystory3.jpg" alt="" />
+          <h3>ToyStory 3</h3>
+          <button>Comprar Entradas</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<footer>
+
+
+</footer>
+  
+
+  <!-- <script src="/js/main.js"></script> -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
