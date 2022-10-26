@@ -60,6 +60,7 @@ body {
   justify-content: center; }
   .container__carteles .container__carteles--box {
     border: 3px solid red;
+    border-radius: 5px;
     background-color: #fa6e6e;
     text-align: center;
     font-size: 18px; }
@@ -98,6 +99,7 @@ body {
   justify-content: center; }
   .container__peliculas .container__carteles--box {
     border: 3px solid red;
+    border-radius: 5px;
     background-color: #fa6e6e;
     text-align: center;
     font-size: 18px;
