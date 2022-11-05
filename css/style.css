@@ -12,8 +12,6 @@ body {
   background-repeat: no-repeat; }
 
 .titulo {
-  background: #ffffff;
-  box-shadow: inset 7px 7px 17px #d4d4d4, inset -7px -7px 17px #ffffff;
   text-align: center;
   font-size: 30px;
   margin-top: 10px; }
