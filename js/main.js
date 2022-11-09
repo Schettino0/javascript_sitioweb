@@ -88,7 +88,7 @@ function buscarPeli(filtro) {
         const eleccionPeli = Number(prompt("¿Para que pelicula deseas comprar entradas?\n" + "(1) " + buscarPelicula[0].pelicula + "  ----  Entradas disponibles: " + buscarPelicula[0].entradasDisponibles + "\n (2) " +
             buscarPelicula[1].pelicula + "  ----  Entradas disponibles: " + buscarPelicula[1].entradasDisponibles + "\n (3) " + buscarPelicula[2].pelicula + "  ----  Entradas disponibles: " + buscarPelicula[2].entradasDisponibles + "\n (4) " + buscarPelicula[3].pelicula + "  ----  Entradas disponibles: " + buscarPelicula[3].entradasDisponibles))
         if (eleccionPeli == 1 || eleccionPeli == 2 || eleccionPeli == 3 || eleccionPeli == 4) {
-            comprar(eleccionPeli, buscarPelicula)
+                comprar(eleccionPeli, buscarPelicula)
             break
         }
         else {
