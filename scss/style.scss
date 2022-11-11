@@ -93,9 +93,13 @@ body {
         @include boxMovies;
         background-color: rgb(43, 163, 232);
         border-color: black;
+        
     }
 
 }
+
+
+
 
 @media screen and (max-width: 768px) {
     body {
