@@ -68,7 +68,7 @@ body {
 
 
 
-.container__carteles {
+.container__estrenos {
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -78,6 +78,26 @@ body {
 
     .container__carteles--box {
         @include boxMovies;
+
+        input:checked{
+            border: 2px solid black;
+
+        }
+        label{
+            font-size: 13px;
+            padding: 10px 8px;
+            margin: 2px;
+            background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+
+    }
+    .container__carteles--box--horarios{
+
+        border: 2px solid black;
+        
     }
 }
 
@@ -99,20 +119,4 @@ body {
 }
 
 
-
-
-@media screen and (max-width: 768px) {
-    body {
-        width: 100%;
-    }
-    .container__carteles--box{
-        width: 160px;
-        img{
-            height: 220px;
-        }
-        h3{
-            height: 50px;
-        }
-    }
-}
 
