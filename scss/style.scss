@@ -15,6 +15,7 @@ body {
     background: url(/assest/img/background.png);
     background-repeat: no-repeat;
 }
+
 .titulo {
     text-align: center;
     font-size: 30px;
@@ -22,7 +23,7 @@ body {
 }
 
 .container__main {
-    background-color: white;    
+    background-color: white;
 }
 
 .container__header {
@@ -78,27 +79,36 @@ body {
 
     .container__carteles--box {
         @include boxMovies;
-
-        input:checked{
-            border: 2px solid black;
-
-        }
-        label{
-            font-size: 13px;
-            padding: 10px 8px;
-            margin: 2px;
-            background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
+        .opciones {
+            input:checked+label {
+                padding:3px 5px;
+                margin: 2px;
+                background: rgb(120, 190, 120);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                transition: all 0.5s ease
+            }
+    
+            label {
+                padding:3px 5px;
+                margin: 2px;
+                background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+                color: white;
+                border: none;
+                border-radius: 10px;
+            }
+            input[type="radio"]{
+                display: none;
+            }
+    
         }
 
     }
-    .container__carteles--box--horarios{
 
-        border: 2px solid black;
-        
-    }
+
+
+
 }
 
 .container__peliculas {
@@ -113,10 +123,31 @@ body {
         @include boxMovies;
         background-color: rgb(43, 163, 232);
         border-color: black;
-        
+        .opciones {
+            input:checked+label {
+                padding:3px 5px;
+                margin: 2px;
+                background: rgb(120, 190, 120);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                transition: all 0.5s ease
+            }
+    
+            label {
+                padding:3px 5px;
+                margin: 2px;
+                background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+                color: white;
+                border: none;
+                border-radius: 10px;
+            }
+            input[type="radio"]{
+                display: none;
+            }
+    
+        }
+
     }
 
 }
-
-
-

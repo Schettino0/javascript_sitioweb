@@ -1,6 +1,9 @@
 .horarios {
   display: none; }
 
+.ver {
+  display: block; }
+
 /* CSS */
 * {
   margin: 0;
@@ -65,7 +68,8 @@ body {
     border-radius: 5px;
     background-color: #fa6e6e;
     text-align: center;
-    font-size: 18px; }
+    font-size: 18px;
+    height: 80%; }
     .container__estrenos .container__carteles--box img {
       min-height: 100px;
       max-height: 300px; }
@@ -92,8 +96,9 @@ body {
         position: relative;
         top: 1px; }
     .container__estrenos .container__carteles--box .buttonhora {
-      padding: 10px 8px;
-      margin: 2px;
+      padding: 8px 8px;
+      margin-top: 7px;
+      margin-bottom: 7px;
       background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
       color: white;
       border: none;
@@ -104,18 +109,23 @@ body {
       .container__estrenos .container__carteles--box .buttonhora:active {
         position: relative;
         top: 1px; }
-    .container__estrenos .container__carteles--box input:checked {
-      border: 2px solid black; }
-    .container__estrenos .container__carteles--box label {
-      font-size: 13px;
-      padding: 10px 8px;
+    .container__estrenos .container__carteles--box .opciones input:checked + label {
+      padding: 3px 5px;
+      margin: 2px;
+      background: #78be78;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      transition: all 0.5s ease; }
+    .container__estrenos .container__carteles--box .opciones label {
+      padding: 3px 5px;
       margin: 2px;
       background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
       color: white;
       border: none;
       border-radius: 10px; }
-  .container__estrenos .container__carteles--box--horarios {
-    border: 2px solid black; }
+    .container__estrenos .container__carteles--box .opciones input[type="radio"] {
+      display: none; }
 
 .container__peliculas {
   padding: 20px;
@@ -130,6 +140,7 @@ body {
     background-color: #fa6e6e;
     text-align: center;
     font-size: 18px;
+    height: 80%;
     background-color: #2ba3e8;
     border-color: black; }
     .container__peliculas .container__carteles--box img {
@@ -158,8 +169,9 @@ body {
         position: relative;
         top: 1px; }
     .container__peliculas .container__carteles--box .buttonhora {
-      padding: 10px 8px;
-      margin: 2px;
+      padding: 8px 8px;
+      margin-top: 7px;
+      margin-bottom: 7px;
       background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
       color: white;
       border: none;
@@ -170,3 +182,20 @@ body {
       .container__peliculas .container__carteles--box .buttonhora:active {
         position: relative;
         top: 1px; }
+    .container__peliculas .container__carteles--box .opciones input:checked + label {
+      padding: 3px 5px;
+      margin: 2px;
+      background: #78be78;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      transition: all 0.5s ease; }
+    .container__peliculas .container__carteles--box .opciones label {
+      padding: 3px 5px;
+      margin: 2px;
+      background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+      color: white;
+      border: none;
+      border-radius: 10px; }
+    .container__peliculas .container__carteles--box .opciones input[type="radio"] {
+      display: none; }
