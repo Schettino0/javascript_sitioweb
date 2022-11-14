@@ -37,14 +37,14 @@ const funcionPM3 = new funcionesCine("22:30", 30)
 const funcionesAM = [funcionAM1, funcionAM2, funcionAM3]
 const funcionesPM = [funcionPM1, funcionPM2, funcionPM3]
 
-const pelicula1 = new pelicula("1", "Avengers", "../assest/img/avengers.jpg", 1, funcionesAM)
-const pelicula2 = new pelicula("2", "Hulk", "../assest/img/hulk.jpg", 1, funcionesPM)
-const pelicula3 = new pelicula("3", "Thor", "../assest/img/thor.jpg", 1, funcionesAM)
-const pelicula4 = new pelicula("4", "Spiderman", "../assest/img/spiderman.jpg", 1, funcionesPM)
-const pelicula5 = new pelicula("5", "Amsterdam", "../assest/img/amsterdam.webp", 0, funcionesAM)
-const pelicula6 = new pelicula("6", "El Cuarto Pasajero", "../assest/img/elcuartopasajero.jpg", 0, funcionesPM)
-const pelicula7 = new pelicula("7", "REC", "../assest/img/red.jpg", 0, funcionesAM)
-const pelicula8 = new pelicula("8", "Al Oriente", "../assest/img/aloriente.jpg", 0, funcionesPM)
+const pelicula1 = new pelicula("1", "Avengers", "assest/img/avengers.jpg", 1, funcionesAM)
+const pelicula2 = new pelicula("2", "Hulk", "assest/img/hulk.jpg", 1, funcionesPM)
+const pelicula3 = new pelicula("3", "Thor", "assest/img/thor.jpg", 1, funcionesAM)
+const pelicula4 = new pelicula("4", "Spiderman", "assest/img/spiderman.jpg", 1, funcionesPM)
+const pelicula5 = new pelicula("5", "Amsterdam", "assest/img/amsterdam.webp", 0, funcionesAM)
+const pelicula6 = new pelicula("6", "El Cuarto Pasajero", "assest/img/elcuartopasajero.jpg", 0, funcionesPM)
+const pelicula7 = new pelicula("7", "REC", "assest/img/red.jpg", 0, funcionesAM)
+const pelicula8 = new pelicula("8", "Al Oriente", "assest/img/aloriente.jpg", 0, funcionesPM)
 let peliculas = [pelicula1, pelicula2, pelicula3, pelicula4, pelicula5, pelicula6, pelicula7, pelicula8]
 
 let carrito = []
