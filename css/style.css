@@ -68,7 +68,7 @@ body {
     border-radius: 5px;
     background-color: #fa6e6e;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     height: 80%; }
     .container__estrenos .container__carteles--box img {
       min-height: 100px;
@@ -139,7 +139,7 @@ body {
     border-radius: 5px;
     background-color: #fa6e6e;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     height: 80%;
     background-color: #2ba3e8;
     border-color: black; }
