@@ -4,7 +4,6 @@
 .ver {
   display: block; }
 
-/* CSS */
 * {
   margin: 0;
   padding: 0;
@@ -199,3 +198,15 @@ body {
       border-radius: 10px; }
     .container__peliculas .container__carteles--box .opciones input[type="radio"] {
       display: none; }
+
+@media screen and (max-width: 768px) {
+  body {
+    width: 100%; }
+  .container__estrenos {
+    padding: 0; }
+  .container__carteles--box {
+    width: 160px; }
+    .container__carteles--box img {
+      height: 220px; }
+    .container__carteles--box h3 {
+      height: 50px; } }

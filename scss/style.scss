@@ -151,3 +151,24 @@ body {
     }
 
 }
+
+@media screen and (max-width : 768px ) {
+    body{
+        width: 100%;
+    }
+    .container__estrenos{  
+        padding: 0;
+    }
+    .container__carteles--box{
+        width: 160px;
+        img{
+            height: 220px;
+        }
+        h3{
+            height: 50px;
+        }
+    }
+    
+    
+    
+}
