@@ -182,6 +182,12 @@ const agregarCarrito = (cantidad, funcion, id, movie) => {
     localStorage.setItem("carrito", carroJSON)
     const peliculasJSON = JSON.stringify(peliculas)
     localStorage.setItem("peliculas", peliculasJSON)
+    Swal.fire({
+        icon: 'success',
+        title: 'Excelente!',
+        text: `A sigo agregado a tu carrito: 
+        ${cantidad} Entradas para la pelicula ${movie}, funcion : ${funcion}` 
+    })
 
 }
 
