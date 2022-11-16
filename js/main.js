@@ -185,8 +185,17 @@ const agregarCarrito = (cantidad, funcion, id, movie) => {
     Swal.fire({
         icon: 'success',
         title: 'Excelente!',
-        text: `A sigo agregado a tu carrito: 
-        ${cantidad} Entradas para la pelicula ${movie}, funcion : ${funcion}` 
+        html: `<h4>A sido agregado a tu carrito: <br>
+        -${cantidad} Entradas para la pelicula ${movie}, funcion : ${funcion}</h4>`,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Ver Carrito',
+        cancelButtonColor: '#d33',
+        cancelButtonText: "Cerrar"
+    }).then((result)=>{
+        if(result.isConfirmed){
+            mostrarCarrito()
+        }
     })
 
 }
