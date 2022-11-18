@@ -52,7 +52,7 @@ body {
             color: white;
 
         }
-        
+
     }
 }
 
@@ -72,8 +72,8 @@ body {
 
 
 .container__estrenos {
-    background: rgb(37,37,37);
-    background: linear-gradient(360deg, rgba(37,37,37,1) 6%, rgba(0,121,255,0.6278886554621849) 71%);
+    background: rgb(37, 37, 37);
+    background: linear-gradient(360deg, rgba(37, 37, 37, 1) 6%, rgba(0, 121, 255, 0.6278886554621849) 71%);
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -118,8 +118,8 @@ body {
 }
 
 .container__peliculas {
-    background: rgb(37,37,37);
-    background: linear-gradient(360deg, rgba(37,37,37,1) 6%, rgba(0,121,255,0.6278886554621849) 71%);
+    background: rgb(37, 37, 37);
+    background: linear-gradient(360deg, rgba(37, 37, 37, 1) 6%, rgba(0, 121, 255, 0.6278886554621849) 71%);
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -182,7 +182,41 @@ body {
             height: 50px;
         }
     }
+}
+
+td {
+    background-color: green;
+    border-radius: 10px 10px 0 0;
+    border: solid 2px black;
+    padding: 4px;
+    transition: all 0.5s ease;
+
+    &:hover {
+        background-color: yellow;
+        transform: scale(1.1);
+        transition: all 0.5s ease;
+
+    }
+}
+
+.seleccionada {
+    background-color: red;
+}
+
+table {
+    border-radius: 10px;
+}
 
 
+.divAsientos {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 600px;
+    background: white;
+    border-radius: 59px;
+    box-shadow: black 10px 5px 10px;
+    display: none;
 
 }

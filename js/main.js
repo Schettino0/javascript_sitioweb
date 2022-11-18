@@ -48,6 +48,7 @@ const pelicula8 = new pelicula("8", "Al Oriente", "assest/img/aloriente.jpg", 0,
 let peliculas = [pelicula1, pelicula2, pelicula3, pelicula4, pelicula5, pelicula6, pelicula7, pelicula8]
 
 let carrito = []
+let numeros = []
 
 
 
@@ -109,6 +110,9 @@ const renderizar = () => {
         <option value=3>3</option>
         <option value=4>4</option>
         </select> <br>
+        <input class="buttonhora" type="button" id="elegirAsientos" value="Elegir Asientos"> <br>
+        <div class="ubicacionAsientos">
+        </div>
         <input class="buttonhora" type="submit" value="Agregar al Carrito" id="carrito">
         <input class="buttonhora" type="reset" value="Limpiar">
         </form>
@@ -192,8 +196,8 @@ const agregarCarrito = (cantidad, funcion, id, movie) => {
         confirmButtonText: 'Ver Carrito',
         cancelButtonColor: '#d33',
         cancelButtonText: "Cerrar"
-    }).then((result)=>{
-        if(result.isConfirmed){
+    }).then((result) => {
+        if (result.isConfirmed) {
             mostrarCarrito()
         }
     })
@@ -203,14 +207,14 @@ const agregarCarrito = (cantidad, funcion, id, movie) => {
 const cargarCarrito = () => {
     if (localStorage.getItem("carrito") !== null) {
         // Carga la información
-        carrito = JSON.parse(localStorage.getItem('carrito'));
+        carrito = JSON.parse(localStorage.getItem('carrito'))
     }
 }
 
 const cargarPeliculas = () => {
     if (localStorage.getItem("peliculas") !== null) {
         // Carga la información
-        peliculas = JSON.parse(localStorage.getItem('peliculas'));
+        peliculas = JSON.parse(localStorage.getItem('peliculas'))
     }
     else {
         const peliculasJSON = JSON.stringify(peliculas)
@@ -220,40 +224,97 @@ const cargarPeliculas = () => {
 }
 
 
-// const actualizarEntradas = () => {
-//     peliculas.forEach((producto) => {
-//             const ubicacion = document.querySelector(".entradasDisp")
-//             const div = document.createElement("div")
-//             div.className = "a"
-//             div.innerHTML = `<span>${producto.horarios[0].entradas}──</span><span id="mostrar">${producto.horarios[1].entradas}──</span><span id="mostrar">${producto.horarios[2].entradas}</span>`
-//             ubicacion.append(div)
+const genera_tabla = () => {
+    const btnElegirAsientos = document.querySelectorAll("#elegirAsientos")
+    btnElegirAsientos.forEach((e) => {
+        e.addEventListener('click', () => {
+            console.log(e)
 
-//         })
-// }
 
-// const info = `<span>${producto.horarios[0].entradas}──</span><span id="mostrar">${producto.horarios[1].entradas}──</span><span id="mostrar">${producto.horarios[2].entradas}</span>`
+            // Obtener la referencia del elemento body
+            const lugarAGenerar = document.querySelectorAll(".ubicacionAsientos")
+            lugarAGenerar.forEach((e) => {
+
+                // Crea un elemento <table> y un elemento <tbody>
+                const tabla = document.createElement("table")
+                const tblBody = document.createElement("tbody")
+                const filas = 2
+                const columnas = 5
+                // Crea las celdas
+                for (let i = 0; i < filas; i++) {
+                    // Crea las hileras de la tabla
+                    const hilera = document.createElement("tr")
+                    for (let j = 0; j < columnas; j++) {
+                        // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+                        // texto sea el contenido de <td>, ubica el elemento <td> al final
+                        // de la hilera de la tabla
+                        const celda = document.createElement("td")
+                        celda.setAttribute("id", `${i}${j}`)
+                        celda.className = "asiento"
+                        const textoCelda = document.createTextNode("__")
+                        celda.appendChild(textoCelda)
+                        hilera.appendChild(celda)
+                    }
+                    // agrega la hilera al final de la tabla (al final del elemento tblbody)
+                    tblBody.appendChild(hilera)
+                }
+
+                // posiciona el <tbody> debajo del elemento <table>
+                tabla.appendChild(tblBody)
+                // appends <table> into <body>
+                e.appendChild(tabla)
+                // modifica el atributo "border" de la tabla y lo fija a "2";
+                tabla.setAttribute("border", "3")
+
+            })
+
+
+        })
+    })
+}
+const elegirAsientos = () => {
+    if (localStorage.getItem("asientos")) {
+        cargarAsientos()
+    }
+    else {
+        console.log("no encontrado")
+    }
+
+    let cantidad = 2
+    const asiento = document.querySelectorAll(".asiento")
+    asiento.forEach((e) => {
+        e.addEventListener('click', () => {
+            console.log(e)
+
+            if (e.className == "seleccionada") {
+                e.className = "asiento"
+                cantidad++
+            }
+            else if (e.className == "asiento") {
+                if (cantidad > 0) {
+                    e.className = "seleccionada"
+                    cantidad--
+                    console.log(cantidad)
+                }
+                else {
+                    alert("No puedes seleccionar mas")
+                }
+            }
+            const id = e.getAttribute("id")
+            console.log(`Seleccionaste el asiento: ${id}`)
+        })
+    })
+}
 
 cargarPeliculas()
 renderizar()
 cargarCarrito()
 mostrarhorarios()
+genera_tabla()
+
 formulario()
 
 
-
-
-
-
-
-
-
-
-
-// let transactionFormData = new FormData(e)
-// let cantidad = transactionFormData.get("cantidad")
-// let funcion = transactionFormData.get("horario")
-// let mensaje = `${cantidad} Entradas para la funcion de las ${funcion} ${producto.nombre} + `
-// console.log(mensaje)
 
 
 
