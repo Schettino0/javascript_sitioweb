@@ -1,10 +1,12 @@
 class pelicula {
-    constructor(id, titulo, img, estreno, horarios) {
+    constructor(id, titulo, img, estreno, horarios, precio) {
         this.id = id
         this.nombre = titulo
         this.imgsrc = img
         this.estreno = estreno
         this.horarios = horarios
+        this.precio = precio
+
     }
 }
 class funcionesCine {
@@ -15,10 +17,11 @@ class funcionesCine {
 }
 
 class addCarrito {
-    constructor(titulo, entradas, funcion) {
+    constructor(titulo, entradas, funcion,precio) {
         this.titulo = titulo
         this.entradas = entradas
         this.funcion = funcion
+        this.precio = precio
     }
 }
 
@@ -37,47 +40,20 @@ const funcionPM3 = new funcionesCine("22:30", 30)
 const funcionesAM = [funcionAM1, funcionAM2, funcionAM3]
 const funcionesPM = [funcionPM1, funcionPM2, funcionPM3]
 
-const pelicula1 = new pelicula("1", "Avengers", "assest/img/avengers.jpg", 1, funcionesAM)
-const pelicula2 = new pelicula("2", "Hulk", "assest/img/hulk.jpg", 1, funcionesPM)
-const pelicula3 = new pelicula("3", "Thor", "assest/img/thor.jpg", 1, funcionesAM)
-const pelicula4 = new pelicula("4", "Spiderman", "assest/img/spiderman.jpg", 1, funcionesPM)
-const pelicula5 = new pelicula("5", "Amsterdam", "assest/img/amsterdam.webp", 0, funcionesAM)
-const pelicula6 = new pelicula("6", "El Cuarto Pasajero", "assest/img/elcuartopasajero.jpg", 0, funcionesPM)
-const pelicula7 = new pelicula("7", "REC", "assest/img/red.jpg", 0, funcionesAM)
-const pelicula8 = new pelicula("8", "Al Oriente", "assest/img/aloriente.jpg", 0, funcionesPM)
+const pelicula1 = new pelicula("1", "Avengers", "assest/img/avengers.jpg", 1, funcionesAM, 5000)
+const pelicula2 = new pelicula("2", "Hulk", "assest/img/hulk.jpg", 1, funcionesPM, 5000)
+const pelicula3 = new pelicula("3", "Thor", "assest/img/thor.jpg", 1, funcionesAM, 5000)
+const pelicula4 = new pelicula("4", "Spiderman", "assest/img/spiderman.jpg", 1, funcionesPM, 5000)
+const pelicula5 = new pelicula("5", "Amsterdam", "assest/img/amsterdam.webp", 0, funcionesAM, 3000)
+const pelicula6 = new pelicula("6", "El Cuarto Pasajero", "assest/img/elcuartopasajero.jpg", 0, funcionesPM, 3000)
+const pelicula7 = new pelicula("7", "REC", "assest/img/red.jpg", 0, funcionesAM, 3000)
+const pelicula8 = new pelicula("8", "Al Oriente", "assest/img/aloriente.jpg", 0, funcionesPM, 3000)
 let peliculas = [pelicula1, pelicula2, pelicula3, pelicula4, pelicula5, pelicula6, pelicula7, pelicula8]
 
 let carrito = []
 let numeros = []
 
 
-
-
-
-//LOCALSTORAGE
-
-
-
-//EJEMPLO DE OBJETO CON OBJETO DENTRO , DISTINTAS ENTRADAS DEPENDIENDO DEL HORARIO DE LA FUNCION.
-const peliEjemplo = {
-    tituloPelicula: "Avengers",
-    horarios: {
-        funcion1: {
-            hora: "12:30",
-            entradas: 20
-        },
-        funcion2: {
-            hora: "14:00",
-            entradas: 30
-        },
-        funcion3: {
-            hora: "16:00",
-            entradas: 30
-        }
-    },
-    entreno: 1
-}
-////////////////////////////////////////////////////////////////////////////////////////////////
 const containerEstrenos = document.querySelector(".container__estrenos")
 const containerPeliculas = document.querySelector(".container__peliculas")
 
@@ -88,7 +64,7 @@ const renderizar = () => {
         tarjeta.className = "container__carteles--box"
         tarjeta.innerHTML = `<img src="${producto.imgsrc}"/>
         <h3>${producto.nombre}</h3>
-        <button  id="verhorarios" >Ver Horarios</button>
+        <button  id="verhorarios" >Ver Horarios</button> <br>
         <div class="horarios">
         <h4>Funciones: </h4>
         <div class="opciones">
@@ -153,10 +129,8 @@ const formulario = () => {
             const cantidad = transactionFormData.get("cantidad")
             const funcion = transactionFormData.get("horario")
             const movie = e.getAttribute('id')
-            console.log(movie)
             const id = e.getAttribute("data-id")
             const mensaje = `${cantidad} Entradas para la funcion de las ${funcion} para ${movie}`
-            console.log(mensaje)
             if (funcion == null) {
                 Swal.fire({
                     icon: 'error',
@@ -173,9 +147,9 @@ const formulario = () => {
 
 }
 
-const agregarCarrito = (cantidad, funcion, id, movie) => {
+const agregarCarrito = (cantidad, funcion, id, movie, precio) => {
     const eleccion = peliculas.find((i) => i.nombre == movie)
-    const add = new addCarrito(eleccion.nombre, cantidad, funcion)
+    const add = new addCarrito(eleccion.nombre, cantidad, funcion,eleccion.precio)
     let resta = eleccion.horarios.find(a => a.hora == funcion)
     resta.entradas -= cantidad
     carrito.push(add)
@@ -187,7 +161,7 @@ const agregarCarrito = (cantidad, funcion, id, movie) => {
         icon: 'success',
         title: 'Excelente!',
         html: `<h4>A sido agregado a tu carrito: <br>
-        -${cantidad} Entradas para la pelicula ${movie}, funcion : ${funcion}</h4>`,
+        -${cantidad} Entradas para la pelicula ${movie}, funcion: ${funcion}</h4>`,
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'Ver Carrito',
@@ -195,7 +169,7 @@ const agregarCarrito = (cantidad, funcion, id, movie) => {
         cancelButtonText: "Cerrar"
     }).then((result) => {
         if (result.isConfirmed) {
-            mostrarCarrito()
+            mostrarcarrito()
         }
     })
 
@@ -219,6 +193,74 @@ const cargarPeliculas = () => {
         location.reload()
     }
 }
+
+const mostrarcarrito = () => {
+    const containerCarrito = document.querySelector(".productoCarrito")
+    const divcarrito = document.querySelector(".carrito")
+    divcarrito.innerHTML = " " //LIMPIA EL DIV PARA NO REPETIR EL CONTENIDO
+    const createTop = document.createElement("div")
+    createTop.className = "top"
+    createTop.innerHTML = `<h2 class="top">Productos en tu carrito:</h2> <span class="top" id="btnCerrar"><i class="fa-solid fa-circle-xmark"></i></span>`
+    divcarrito.appendChild(createTop)
+    let preciototal = 0
+    carrito.forEach((e) => {
+        const info = `<h3>- ${e.entradas} Entradas para ${e.titulo}, funcion: ${e.funcion} - $${e.precio}</h3 >`
+        preciototal += e.precio
+        const creatediv = document.createElement("div")
+        creatediv.className = "productoCarrito"
+        creatediv.innerHTML = info
+        divcarrito.append(creatediv)
+        divcarrito.style.display = "block"
+    })
+    const precioHTML = document.createElement("h2")
+    precioHTML.innerHTML= `Precio total : $${preciototal}`
+    divcarrito.append(precioHTML)
+    console.log(preciototal)
+    //BOTON LIMPIAR CARRITO
+    const btnLimpiar = document.createElement("div")
+    btnLimpiar.innerHTML = `<input type="button" class="btnLimpiar" value="Limpiar Carrito">`
+    btnLimpiar.className = "btnclean"
+    divcarrito.appendChild(btnLimpiar)
+    // Boton para cerrar carrito
+    const btnCerrar = document.querySelector("#btnCerrar")
+    btnCerrar.addEventListener('click', () => {
+        divcarrito.style.display = "none"
+        divcarrito.innerHTML = " "
+    })
+    //LIMPIAR CARRITO
+    const limpiarCarro = document.querySelector(".btnLimpiar")
+    limpiarCarro.addEventListener('click', () => {
+        localStorage.removeItem("carrito")
+        carrito = []
+        divcarrito.innerHTML = " "
+        divcarrito.style.display = "none"
+    })
+
+}
+
+
+
+
+const carritoViaMenu = () => {
+    if (carrito.length == 0) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No tienes productos en tu carrito!'
+        })
+    }
+    else {
+        const divcarrito = document.querySelector(".productoCarrito")
+        const divcarrito2 = document.querySelector(".carrito")
+        if (divcarrito) {
+            divcarrito2.style.display = "block"
+        }
+        else {
+            mostrarcarrito()
+        }
+    }
+}
+
 
 
 

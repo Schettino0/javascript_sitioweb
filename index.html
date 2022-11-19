@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="scss/style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -23,8 +23,8 @@
         <li><a href="index.html">Inicio</a></li>
         <li><a href="#container__peliculas">Peliculas</a></li>
         <li><a href="#">Estrenos</a></li>
-        <li><a href="#"> <i class="fa-solid fa-right-to-bracket"> </i> -Iniciar Sesion</a></li>
-        <li><a href="#"> <i class="fa-sharp fa-solid fa-cart-shopping"></i></a></li>
+        <!-- <li><a href="#"> <i class="fa-solid fa-right-to-bracket"> </i> -Iniciar Sesion (Prox...)</a></li> -->
+        <li><a href="#" onclick="carritoViaMenu()" > <i class="fa-sharp fa-solid fa-cart-shopping"></i></a></li>
         <!-- <li><a href="#" class="disable">Confiteria</a></li> -->
       </ul>
     </div>
@@ -32,6 +32,8 @@
 </header>
 
 <body>
+
+  
   <div class="container__main">
     <h2 class="titulo">Estrenos</h2>
     <div class="container__estrenos">
@@ -42,8 +44,11 @@
       </div>
     </div>
   </div>
-  <footer>
+  <div class="carrito">
 
+  </div>
+
+  <footer>
   </footer>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="js/main.js"></script>
