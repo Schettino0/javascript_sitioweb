@@ -110,9 +110,6 @@ const renderizar = () => {
         <option value=3>3</option>
         <option value=4>4</option>
         </select> <br>
-        <input class="buttonhora" type="button" id="elegirAsientos" value="Elegir Asientos"> <br>
-        <div class="ubicacionAsientos">
-        </div>
         <input class="buttonhora" type="submit" value="Agregar al Carrito" id="carrito">
         <input class="buttonhora" type="reset" value="Limpiar">
         </form>
@@ -148,7 +145,6 @@ const mostrarhorarios = () => {
 }
 
 const formulario = () => {
-
     const formulario = document.querySelectorAll(".formulario")
     formulario.forEach((e) => {
         e.addEventListener('submit', (x) => {
@@ -169,6 +165,7 @@ const formulario = () => {
                 })
             }
             else {
+
                 agregarCarrito(cantidad, funcion, id, movie)
             }
         })
@@ -224,95 +221,14 @@ const cargarPeliculas = () => {
 }
 
 
-const genera_tabla = () => {
-    const btnElegirAsientos = document.querySelectorAll("#elegirAsientos")
-    btnElegirAsientos.forEach((e) => {
-        e.addEventListener('click', () => {
-            console.log(e)
-
-
-            // Obtener la referencia del elemento body
-            const lugarAGenerar = document.querySelectorAll(".ubicacionAsientos")
-            lugarAGenerar.forEach((e) => {
-
-                // Crea un elemento <table> y un elemento <tbody>
-                const tabla = document.createElement("table")
-                const tblBody = document.createElement("tbody")
-                const filas = 2
-                const columnas = 5
-                // Crea las celdas
-                for (let i = 0; i < filas; i++) {
-                    // Crea las hileras de la tabla
-                    const hilera = document.createElement("tr")
-                    for (let j = 0; j < columnas; j++) {
-                        // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-                        // texto sea el contenido de <td>, ubica el elemento <td> al final
-                        // de la hilera de la tabla
-                        const celda = document.createElement("td")
-                        celda.setAttribute("id", `${i}${j}`)
-                        celda.className = "asiento"
-                        const textoCelda = document.createTextNode("__")
-                        celda.appendChild(textoCelda)
-                        hilera.appendChild(celda)
-                    }
-                    // agrega la hilera al final de la tabla (al final del elemento tblbody)
-                    tblBody.appendChild(hilera)
-                }
-
-                // posiciona el <tbody> debajo del elemento <table>
-                tabla.appendChild(tblBody)
-                // appends <table> into <body>
-                e.appendChild(tabla)
-                // modifica el atributo "border" de la tabla y lo fija a "2";
-                tabla.setAttribute("border", "3")
-
-            })
-
-
-        })
-    })
-}
-const elegirAsientos = () => {
-    if (localStorage.getItem("asientos")) {
-        cargarAsientos()
-    }
-    else {
-        console.log("no encontrado")
-    }
-
-    let cantidad = 2
-    const asiento = document.querySelectorAll(".asiento")
-    asiento.forEach((e) => {
-        e.addEventListener('click', () => {
-            console.log(e)
-
-            if (e.className == "seleccionada") {
-                e.className = "asiento"
-                cantidad++
-            }
-            else if (e.className == "asiento") {
-                if (cantidad > 0) {
-                    e.className = "seleccionada"
-                    cantidad--
-                    console.log(cantidad)
-                }
-                else {
-                    alert("No puedes seleccionar mas")
-                }
-            }
-            const id = e.getAttribute("id")
-            console.log(`Seleccionaste el asiento: ${id}`)
-        })
-    })
-}
 
 cargarPeliculas()
 renderizar()
 cargarCarrito()
 mostrarhorarios()
-genera_tabla()
-
 formulario()
+
+
 
 
 
