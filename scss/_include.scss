@@ -26,19 +26,51 @@
     }
 }
 
+
 @mixin boxMovies {
     border: 3px solid rgb(255, 0, 0);
     border-radius: 5px;
     background-color: rgb(250, 110, 110);
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
+    height: 80%;
 
     img {
         min-height: 100px;
         max-height: 300px;
     }
 
-    button {
+    #verhorarios {
         @include button;
+
+    }
+
+    .buttonhora {
+        
+        padding: 8px 8px;
+        margin-top: 7px;
+        margin-bottom: 7px;
+        background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+
+        &:hover {
+            background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+            background-color: #f24437;
+        }
+
+        &:active {
+            position: relative;
+            top: 1px;
+        }
     }
 }
+
+.horarios{
+    display: none;
+}
+.ver{
+    display: block;
+}
+

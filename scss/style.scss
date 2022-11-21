@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 body {
@@ -12,9 +13,8 @@ body {
     font-family: 'Poppins';
     box-sizing: border-box;
     // background-color: #e1e1e1;
-    background: url(/assest/img/background.png);
-    background-repeat: no-repeat;
 }
+
 .titulo {
     text-align: center;
     font-size: 30px;
@@ -22,7 +22,7 @@ body {
 }
 
 .container__main {
-    background-color: white;    
+    background-color: white;
 }
 
 .container__header {
@@ -52,8 +52,11 @@ body {
             color: white;
 
         }
+
     }
 }
+
+
 
 .container__header--logo {
     img {
@@ -68,7 +71,9 @@ body {
 
 
 
-.container__carteles {
+.container__estrenos {
+    background: rgb(37, 37, 37);
+    background: linear-gradient(360deg, rgba(37, 37, 37, 1) 6%, rgba(0, 121, 255, 0.6278886554621849) 71%);
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -78,10 +83,43 @@ body {
 
     .container__carteles--box {
         @include boxMovies;
+
+        .opciones {
+            input:checked+label {
+                padding: 3px 5px;
+                margin: 2px;
+                background: rgb(120, 190, 120);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                transition: all 0.5s ease
+            }
+
+            label {
+                padding: 3px 5px;
+                margin: 2px;
+                background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+                color: white;
+                border: none;
+                border-radius: 10px;
+            }
+
+            input[type="radio"] {
+                display: none;
+            }
+
+        }
+
     }
+
+
+
+
 }
 
 .container__peliculas {
+    background: rgb(37, 37, 37);
+    background: linear-gradient(360deg, rgba(37, 37, 37, 1) 6%, rgba(0, 121, 255, 0.6278886554621849) 71%);
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -93,22 +131,150 @@ body {
         @include boxMovies;
         background-color: rgb(43, 163, 232);
         border-color: black;
+
+        .opciones {
+            input:checked+label {
+                padding: 3px 5px;
+                margin: 2px;
+                background: rgb(120, 190, 120);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                transition: all 0.5s ease
+            }
+
+            label {
+                padding: 3px 5px;
+                margin: 2px;
+                background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+                color: white;
+                border: none;
+                border-radius: 10px;
+            }
+
+            input[type="radio"] {
+                display: none;
+            }
+
+        }
+
     }
 
 }
 
-@media screen and (max-width: 768px) {
+td {
+    background-color: green;
+    border-radius: 10px 10px 0 0;
+    border: solid 2px black;
+    padding: 4px;
+    transition: all 0.5s ease;
+
+    &:hover {
+        background-color: yellow;
+        transform: scale(1.1);
+        transition: all 0.5s ease;
+
+    }
+}
+
+.seleccionada {
+    background-color: red;
+}
+
+table {
+    border-radius: 10px;
+}
+
+
+.divAsientos {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 600px;
+    background: white;
+    border-radius: 59px;
+    box-shadow: black 10px 5px 10px;
+    display: none;
+
+}
+
+.carrito {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    span {
+        font-size: 1.5rem;
+    }
+    .productoCarrito{
+        border: 1px solid #252525;
+        border-radius: 10px
+    }
+    .btnLimpiar{
+        @include button;
+        margin-top: 2rem;
+    }
+    .btnclean{
+        display: flex;
+        justify-content: center
+    }
+}
+
+#trailer {
+    @include button;
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+@media screen and (max-width : 768px) {
     body {
         width: 100%;
     }
-    .container__carteles--box{
+
+    .container__estrenos {
+        padding: 0;
+    }
+
+    .container__carteles--box {
         width: 160px;
-        img{
+
+        img {
             height: 220px;
         }
-        h3{
+
+        h3 {
             height: 50px;
         }
     }
-}
 
+    .carrito {
+        padding: 5px;
+        width: 90%;
+        left: 15px;
+        top: 30%;
+        margin: 5px;
+
+        h3 {
+            font-size: 13px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+    }
+}

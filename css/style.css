@@ -1,3 +1,9 @@
+.horarios {
+  display: none; }
+
+.ver {
+  display: block; }
+
 * {
   margin: 0;
   padding: 0;
@@ -7,9 +13,7 @@ body {
   margin: 0 auto;
   width: 70%;
   font-family: 'Poppins';
-  box-sizing: border-box;
-  background: url(/assest/img/background.png);
-  background-repeat: no-repeat; }
+  box-sizing: border-box; }
 
 .titulo {
   text-align: center;
@@ -49,23 +53,26 @@ body {
   .container__header--logo img {
     max-width: 100px; }
 
-.container__carteles {
+.container__estrenos {
+  background: #252525;
+  background: linear-gradient(360deg, #252525 6%, rgba(0, 121, 255, 0.627889) 71%);
   padding: 20px;
   border-radius: 10px;
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
   justify-content: center; }
-  .container__carteles .container__carteles--box {
+  .container__estrenos .container__carteles--box {
     border: 3px solid red;
     border-radius: 5px;
     background-color: #fa6e6e;
     text-align: center;
-    font-size: 18px; }
-    .container__carteles .container__carteles--box img {
+    font-size: 15px;
+    height: 80%; }
+    .container__estrenos .container__carteles--box img {
       min-height: 100px;
       max-height: 300px; }
-    .container__carteles .container__carteles--box button {
+    .container__estrenos .container__carteles--box #verhorarios {
       margin-top: 10px;
       margin-bottom: 15px;
       box-shadow: 3px 4px 0px 0px #8a2a21;
@@ -81,14 +88,47 @@ body {
       padding: 10px 31px;
       text-decoration: none;
       text-shadow: 0px 1px 0px #810e05; }
-      .container__carteles .container__carteles--box button:hover {
+      .container__estrenos .container__carteles--box #verhorarios:hover {
         background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
         background-color: #f24437; }
-      .container__carteles .container__carteles--box button:active {
+      .container__estrenos .container__carteles--box #verhorarios:active {
         position: relative;
         top: 1px; }
+    .container__estrenos .container__carteles--box .buttonhora {
+      padding: 8px 8px;
+      margin-top: 7px;
+      margin-bottom: 7px;
+      background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+      color: white;
+      border: none;
+      border-radius: 10px; }
+      .container__estrenos .container__carteles--box .buttonhora:hover {
+        background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+        background-color: #f24437; }
+      .container__estrenos .container__carteles--box .buttonhora:active {
+        position: relative;
+        top: 1px; }
+    .container__estrenos .container__carteles--box .opciones input:checked + label {
+      padding: 3px 5px;
+      margin: 2px;
+      background: #78be78;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      transition: all 0.5s ease; }
+    .container__estrenos .container__carteles--box .opciones label {
+      padding: 3px 5px;
+      margin: 2px;
+      background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+      color: white;
+      border: none;
+      border-radius: 10px; }
+    .container__estrenos .container__carteles--box .opciones input[type="radio"] {
+      display: none; }
 
 .container__peliculas {
+  background: #252525;
+  background: linear-gradient(360deg, #252525 6%, rgba(0, 121, 255, 0.627889) 71%);
   padding: 20px;
   border-radius: 10px;
   display: flex;
@@ -100,13 +140,14 @@ body {
     border-radius: 5px;
     background-color: #fa6e6e;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
+    height: 80%;
     background-color: #2ba3e8;
     border-color: black; }
     .container__peliculas .container__carteles--box img {
       min-height: 100px;
       max-height: 300px; }
-    .container__peliculas .container__carteles--box button {
+    .container__peliculas .container__carteles--box #verhorarios {
       margin-top: 10px;
       margin-bottom: 15px;
       box-shadow: 3px 4px 0px 0px #8a2a21;
@@ -122,19 +163,80 @@ body {
       padding: 10px 31px;
       text-decoration: none;
       text-shadow: 0px 1px 0px #810e05; }
-      .container__peliculas .container__carteles--box button:hover {
+      .container__peliculas .container__carteles--box #verhorarios:hover {
         background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
         background-color: #f24437; }
-      .container__peliculas .container__carteles--box button:active {
+      .container__peliculas .container__carteles--box #verhorarios:active {
         position: relative;
         top: 1px; }
+    .container__peliculas .container__carteles--box .buttonhora {
+      padding: 8px 8px;
+      margin-top: 7px;
+      margin-bottom: 7px;
+      background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+      color: white;
+      border: none;
+      border-radius: 10px; }
+      .container__peliculas .container__carteles--box .buttonhora:hover {
+        background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+        background-color: #f24437; }
+      .container__peliculas .container__carteles--box .buttonhora:active {
+        position: relative;
+        top: 1px; }
+    .container__peliculas .container__carteles--box .opciones input:checked + label {
+      padding: 3px 5px;
+      margin: 2px;
+      background: #78be78;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      transition: all 0.5s ease; }
+    .container__peliculas .container__carteles--box .opciones label {
+      padding: 3px 5px;
+      margin: 2px;
+      background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+      color: white;
+      border: none;
+      border-radius: 10px; }
+    .container__peliculas .container__carteles--box .opciones input[type="radio"] {
+      display: none; }
 
 @media screen and (max-width: 768px) {
   body {
     width: 100%; }
+  .container__estrenos {
+    padding: 0; }
   .container__carteles--box {
     width: 160px; }
     .container__carteles--box img {
       height: 220px; }
     .container__carteles--box h3 {
       height: 50px; } }
+
+td {
+  background-color: green;
+  border-radius: 10px 10px 0 0;
+  border: solid 2px black;
+  padding: 4px;
+  transition: all 0.5s ease; }
+  td:hover {
+    background-color: yellow;
+    transform: scale(1.1);
+    transition: all 0.5s ease; }
+
+.seleccionada {
+  background-color: red; }
+
+table {
+  border-radius: 10px; }
+
+.divAsientos {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 600px;
+  background: white;
+  border-radius: 59px;
+  box-shadow: black 10px 5px 10px;
+  display: none; }
