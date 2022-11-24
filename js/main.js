@@ -36,7 +36,6 @@ const funcionPM1 = new funcionesCine("12:30", 30)
 const funcionPM2 = new funcionesCine("17:30", 30)
 const funcionPM3 = new funcionesCine("22:30", 30)
 
-
 const funcionesAM = [funcionAM1, funcionAM2, funcionAM3]
 const funcionesPM = [funcionPM1, funcionPM2, funcionPM3]
 
@@ -150,13 +149,9 @@ const formulario = () => {
 const agregarCarrito = (cantidad, funcion, id, movie, precio) => {
     const eleccion = peliculas.find((i) => i.nombre == movie)
     const add = new addCarrito(eleccion.nombre, cantidad, funcion, eleccion.precio)
-    let resta = eleccion.horarios.find(a => a.hora == funcion)
-    resta.entradas -= cantidad
     carrito.push(add)
     const carroJSON = JSON.stringify(carrito)
     localStorage.setItem("carrito", carroJSON)
-    const peliculasJSON = JSON.stringify(peliculas)
-    localStorage.setItem("peliculas", peliculasJSON)
     Swal.fire({
         icon: 'success',
         title: 'Excelente!',
@@ -206,7 +201,7 @@ const mostrarcarrito = () => {
     divcarrito.appendChild(createTop)
     let preciototal = 0
     carrito.forEach((e) => {
-        const info = `<h3>- ${e.entradas} Entradas para ${e.titulo}, funcion: ${e.funcion} - $${e.precio}</h3 >`
+        const info = `<h3 class="item" data="${e.titulo},${e.funcion},${e.entradas}">- ${e.entradas} Entradas para ${e.titulo}, funcion: ${e.funcion} - $${e.precio}</h3 >`
         preciototal += e.precio
         const creatediv = document.createElement("div")
         creatediv.className = "productoCarrito"
@@ -215,14 +210,14 @@ const mostrarcarrito = () => {
         divcarrito.style.display = "block"
     })
     const precioHTML = document.createElement("h2")
-    precioHTML.className ="precioFinal"
+    precioHTML.className = "precioFinal"
     precioHTML.innerHTML = `Precio total : $${preciototal}`
     divcarrito.append(precioHTML)
     console.log(preciototal)
     //BOTON LIMPIAR CARRITO Y CONFIRMAR
     const btnLimpiar = document.createElement("div")
     btnLimpiar.innerHTML = `<input type="button" class="btnLimpiar" value="Limpiar Carrito">
-                            <input type="button" class="btnConfirmarCompra" value="Confirmar Compra">`
+                            <input type="button" class="btnConfirmarCompra" onclick="confirmarCompra()" value="Confirmar Compra">`
     btnLimpiar.className = "btnclean"
     divcarrito.appendChild(btnLimpiar)
     // Boton para cerrar carrito
@@ -241,10 +236,8 @@ const mostrarcarrito = () => {
         divcarrito.innerHTML = " "
         divcarrito.style.display = "none"
     })
-
+    quitarDelCarrito()
 }
-
-
 
 
 const carritoViaMenu = () => {
@@ -269,12 +262,58 @@ const carritoViaMenu = () => {
 
 
 
+const confirmarCompra = () => { //A LA HORA DE CONFIRMAR LA COMPRA, REDUCE LA CANTIDAD DE ENTRADAS EN VENTA.
+    carrito.forEach((e) => {
+        const { titulo, entradas, funcion } = e
+        const busquedaPeli = peliculas.find((item) => titulo == item.nombre)
+        console.log(busquedaPeli.horarios)
+        const busquedaFuncion = busquedaPeli.horarios.find((h) => h.hora == funcion)
+        console.log(busquedaFuncion)
+        busquedaFuncion.entradas -= entradas
+        const peliculasJSON = JSON.stringify(peliculas)
+        localStorage.setItem("peliculas", peliculasJSON)
+        Swal.fire({
+            icon: 'success',
+            title: 'Rederigiendo al sitio para pagar!',
+        })
+        const divcarrito2 = document.querySelector(".carrito")
+        divcarrito2.style.display = "none"
+        localStorage.removeItem("carrito")
+        carrito = []
+
+    })
+}
+
+
+const quitarDelCarrito = () => {
+    const productoItem = document.querySelectorAll(".productoCarrito")
+    console.log(productoItem)
+    productoItem.forEach((e) => {
+        e.addEventListener('click', () => {
+            e.remove()
+            const hijo = e.firstChild
+            const info = hijo.getAttribute("data")
+            const array = info.split(",")
+            const [titulo, funcion, cantidad] = array
+            console.log(titulo)
+            const buscarItemCarrito = carrito.find((i) => i.titulo == titulo)
+            console.log(carrito.indexOf(buscarItemCarrito))
+            carrito.splice(carrito.indexOf(buscarItemCarrito), 1)
+            const carroJSON = JSON.stringify(carrito)
+            localStorage.setItem("carrito", carroJSON)
+            mostrarcarrito()
+        })
+    })
+}
+
+
 
 cargarPeliculas()
 renderizar()
 cargarCarrito()
 mostrarhorarios()
 formulario()
+
 
 
 
