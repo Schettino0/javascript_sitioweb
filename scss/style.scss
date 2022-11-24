@@ -206,8 +206,17 @@ table {
     left: 25%;
     background-color: white;
     border-radius: 10px;
-    padding: 10px;
+    padding: 2%;
     width: 50%;
+    
+    .precioFinal{
+        position: relative;
+        left: 25%;
+        text-align: center;
+        border:2px solid green;
+        border-radius: 10px;
+        width: 50%;
+    }
 
     .top {
         display: flex;
@@ -218,28 +227,44 @@ table {
     span {
         font-size: 1.5rem;
     }
-    .productoCarrito{
+
+    .productoCarrito {
+        text-align: center;
         border: 1px solid #252525;
-        border-radius: 10px
+        border-radius: 5px;
+        margin: 15px;
+        &:hover{
+            background: red;
+            color: white;
+            text-decoration:line-through;
+        }
+        
     }
-    .btnLimpiar{
+
+    .btnLimpiar {
         @include button;
         margin-top: 2rem;
     }
-    .btnclean{
+
+    .btnclean {
         display: flex;
         justify-content: center
     }
-}
 
-#trailer {
-    @include button;
-
-    a {
-        text-decoration: none;
-        color: white;
+    .btnConfirmarCompra {
+        @include button;
+        background: green;
+        margin-top: 2rem;
+        margin-left: 10px;
+        box-shadow: 3px 4px 0px 0px rgb(75, 230, 75);
+        border: 2px solid green;
+        &:hover{
+            background: rgb(23, 154, 23);
+        }
     }
 }
+
+
 
 @media screen and (max-width : 768px) {
     body {

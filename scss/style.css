@@ -276,7 +276,15 @@ table {
   left: 25%;
   background-color: white;
   border-radius: 10px;
-  padding: 10px;
+  padding: 2%;
+  width: 50%;
+}
+.carrito .precioFinal {
+  position: relative;
+  left: 25%;
+  text-align: center;
+  border: 2px solid green;
+  border-radius: 10px;
   width: 50%;
 }
 .carrito .top {
@@ -288,8 +296,15 @@ table {
   font-size: 1.5rem;
 }
 .carrito .productoCarrito {
+  text-align: center;
   border: 1px solid #252525;
-  border-radius: 10px;
+  border-radius: 5px;
+  margin: 15px;
+}
+.carrito .productoCarrito:hover {
+  background: red;
+  color: white;
+  text-decoration: line-through;
 }
 .carrito .btnLimpiar {
   margin-top: 10px;
@@ -321,8 +336,7 @@ table {
   display: flex;
   justify-content: center;
 }
-
-#trailer {
+.carrito .btnConfirmarCompra {
   margin-top: 10px;
   margin-bottom: 15px;
   box-shadow: 3px 4px 0px 0px #8a2a21;
@@ -338,18 +352,22 @@ table {
   padding: 10px 31px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #810e05;
+  background: green;
+  margin-top: 2rem;
+  margin-left: 10px;
+  box-shadow: 3px 4px 0px 0px rgb(75, 230, 75);
+  border: 2px solid green;
 }
-#trailer:hover {
+.carrito .btnConfirmarCompra:hover {
   background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
   background-color: #f24437;
 }
-#trailer:active {
+.carrito .btnConfirmarCompra:active {
   position: relative;
   top: 1px;
 }
-#trailer a {
-  text-decoration: none;
-  color: white;
+.carrito .btnConfirmarCompra:hover {
+  background: rgb(23, 154, 23);
 }
 
 @media screen and (max-width: 768px) {

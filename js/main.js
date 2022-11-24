@@ -17,11 +17,11 @@ class funcionesCine {
 }
 
 class addCarrito {
-    constructor(titulo, entradas, funcion,precio) {
+    constructor(titulo, entradas, funcion, precio) {
         this.titulo = titulo
         this.entradas = entradas
         this.funcion = funcion
-        this.precio = precio
+        this.precio = precio * entradas
     }
 }
 
@@ -149,7 +149,7 @@ const formulario = () => {
 
 const agregarCarrito = (cantidad, funcion, id, movie, precio) => {
     const eleccion = peliculas.find((i) => i.nombre == movie)
-    const add = new addCarrito(eleccion.nombre, cantidad, funcion,eleccion.precio)
+    const add = new addCarrito(eleccion.nombre, cantidad, funcion, eleccion.precio)
     let resta = eleccion.horarios.find(a => a.hora == funcion)
     resta.entradas -= cantidad
     carrito.push(add)
@@ -180,6 +180,7 @@ const cargarCarrito = () => {
         // Carga la información
         carrito = JSON.parse(localStorage.getItem('carrito'))
     }
+
 }
 
 const cargarPeliculas = () => {
@@ -193,6 +194,7 @@ const cargarPeliculas = () => {
         location.reload()
     }
 }
+
 
 const mostrarcarrito = () => {
     const containerCarrito = document.querySelector(".productoCarrito")
@@ -213,12 +215,14 @@ const mostrarcarrito = () => {
         divcarrito.style.display = "block"
     })
     const precioHTML = document.createElement("h2")
-    precioHTML.innerHTML= `Precio total : $${preciototal}`
+    precioHTML.className ="precioFinal"
+    precioHTML.innerHTML = `Precio total : $${preciototal}`
     divcarrito.append(precioHTML)
     console.log(preciototal)
-    //BOTON LIMPIAR CARRITO
+    //BOTON LIMPIAR CARRITO Y CONFIRMAR
     const btnLimpiar = document.createElement("div")
-    btnLimpiar.innerHTML = `<input type="button" class="btnLimpiar" value="Limpiar Carrito">`
+    btnLimpiar.innerHTML = `<input type="button" class="btnLimpiar" value="Limpiar Carrito">
+                            <input type="button" class="btnConfirmarCompra" value="Confirmar Compra">`
     btnLimpiar.className = "btnclean"
     divcarrito.appendChild(btnLimpiar)
     // Boton para cerrar carrito
@@ -227,6 +231,8 @@ const mostrarcarrito = () => {
         divcarrito.style.display = "none"
         divcarrito.innerHTML = " "
     })
+
+
     //LIMPIAR CARRITO
     const limpiarCarro = document.querySelector(".btnLimpiar")
     limpiarCarro.addEventListener('click', () => {
